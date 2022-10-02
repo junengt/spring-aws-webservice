@@ -1,6 +1,7 @@
 package com.example.springawswebservice.repository;
 
 import com.example.springawswebservice.domain.posts.Posts;
+import com.example.springawswebservice.repository.posts.PostsRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

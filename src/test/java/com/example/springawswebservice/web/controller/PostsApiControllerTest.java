@@ -1,9 +1,8 @@
 package com.example.springawswebservice.web.controller;
 
 import com.example.springawswebservice.domain.posts.Posts;
-import com.example.springawswebservice.repository.PostsRepository;
+import com.example.springawswebservice.repository.posts.PostsRepository;
 import com.example.springawswebservice.web.dto.PostsSaveReqDto;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,6 @@
 package com.example.springawswebservice.service.posts;
 
-import com.example.springawswebservice.repository.PostsRepository;
+import com.example.springawswebservice.repository.posts.PostsRepository;
 import com.example.springawswebservice.web.dto.PostsSaveReqDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
