@@ -30,4 +30,11 @@ public class PostsApiController {
     public PostsResDto findById(@PathVariable Long postsId) {
         return postsService.findById(postsId);
     }
+
+    //Posts 단건 삭제 API
+    @DeleteMapping("api/v1/posts/{postsId}")
+    public Long delete(@PathVariable Long postsId) {
+        postsService.delete(postsId);
+        return postsId;
+    }
 }

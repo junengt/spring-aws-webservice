@@ -48,4 +48,12 @@ public class PostsService {
     public List<PostsListResDto> findAllDesc() {
         return postsRepository.findAllDesc().stream().map(p -> new PostsListResDto(p)).toList();
     }
+
+    //Posts 단건 삭제
+    @Transactional
+    public void delete(Long postsId) {
+        Posts posts = postsRepository.findById(postsId).orElseThrow(() ->
+                new IllegalArgumentException("해당 게시글이 없습니다. id=" + postsId));
+        postsRepository.delete(posts);
+    }
 }
