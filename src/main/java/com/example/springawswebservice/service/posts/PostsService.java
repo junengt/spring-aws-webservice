@@ -2,12 +2,16 @@ package com.example.springawswebservice.service.posts;
 
 import com.example.springawswebservice.domain.posts.Posts;
 import com.example.springawswebservice.repository.posts.PostsRepository;
+import com.example.springawswebservice.web.dto.PostsListResDto;
 import com.example.springawswebservice.web.dto.PostsResDto;
 import com.example.springawswebservice.web.dto.PostsSaveReqDto;
 import com.example.springawswebservice.web.dto.PostsUpdateReqDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
@@ -38,5 +42,10 @@ public class PostsService {
                 new IllegalStateException("해당 게시물이 없습니다. id=" + postsId));
 
         return new PostsResDto(posts);
+    }
+
+    //Posts 전부 조회
+    public List<PostsListResDto> findAllDesc() {
+        return postsRepository.findAllDesc().stream().map(p -> new PostsListResDto(p)).toList();
     }
 }
