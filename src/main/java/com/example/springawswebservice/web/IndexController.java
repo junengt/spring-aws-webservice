@@ -1,5 +1,6 @@
 package com.example.springawswebservice.web;
 
+import com.example.springawswebservice.config.auth.LoginUser;
 import com.example.springawswebservice.config.auth.dto.SessionUser;
 import com.example.springawswebservice.service.posts.PostsService;
 import com.example.springawswebservice.web.dto.PostsResDto;
@@ -19,9 +20,8 @@ public class IndexController {
     private final HttpSession httpSession;
 
     @GetMapping("/")
-    public String index(Model model) {
+    public String index(Model model, @LoginUser SessionUser user) {
         model.addAttribute("posts", postsService.findAllDesc());
-        SessionUser user = (SessionUser) httpSession.getAttribute("user");
         if (user != null) {
             model.addAttribute("userName", user.getName());
         }
